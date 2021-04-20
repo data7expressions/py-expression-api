@@ -1,0 +1,8 @@
+@host=http://127.0.0.1:8000
+
+POST {{host}}/expression/tree HTTP/1.1
+content-type: application/json
+
+{
+  "expression":"rectangle = {x:50,y:50,width:80,height:60};sleepSecs = 1;source=nvl(source,'data/source.jpg');"            
+}
