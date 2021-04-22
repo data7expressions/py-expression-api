@@ -29,12 +29,17 @@ class Operand():
         return self._name
 
     @property
+    def parent(self):
+        return self._parent    
+
+    @property
     def value(self): 
         pass   
 
     @property
     def operands(self):
-        return self._operands    
+        return self._operands
+
 
     def __add__(self, other):return Exp().newOperator('+',[other,self]) 
     def __sub__(self, other):return Exp().newOperator('-',[other,self])    
@@ -686,9 +691,10 @@ class Exp(metaclass=Singleton):
             children.append(self.tree(p))
         return OperandTree(o=expression.name,c=children)     
 
-    def debug(self,breakpoint:OperandDebug)-> OperandDebug:
+    def debug(self,breakpoint:OperandDebug=None)-> OperandDebug:
         pass 
         
+
 
 
     def getVars(self,expression:Operand)->dict:
